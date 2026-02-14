@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dearest Chiuu - Happy Valentine's Day!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #FF69B4; /* Hot Pink - for highlights */
+            --soft-pink: #FFC0CB; /* Light Pink - for background accents */
+            --rose-gold: #B76E79; /* A unique rose gold tone */
+            --cream: #FFF5EE; /* Creamy background */
+            --text-dark: #333333; /* Dark text for readability */
+            --text-light: #f5f5f5; /* Light text for contrast */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* For falling hearts */
+            color: var(--text-dark);
+        }
+
+        .valentine-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: fadeInScale 1.5s ease-out;
+            border: 2px solid var(--rose-gold);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-pink);
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .bouquet-img {
+            width: 100%;
+            max-width: 350px; /* Adjust size for better fit */
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: imgPop 1s ease-out forwards;
+            animation-delay: 0.5s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .message {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            color: var(--rose-gold);
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes imgPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <div class="valentine-card">
+        <h1>My Dearest Chiuu,</h1>
+        <img src="1000666520.png" alt="A special bouquet for you" class="bouquet-img">
+        <p class="message">
+            Har pal tumhare khayal mein guzarta hai, aur yeh bouquet sirf mere dil ke ehsaason ka ek chhota sa hissa hai. Tum meri zindagi ki sabse khoobsurat khushi ho, aur har din tumhare saath Valentine's Day jaisa hai.
+            <br><br>
+            Tumhare bina meri duniya adhoori hai. Happy Valentine's Day, meri jaan!
+        </p>
+        <p class="signature">
+            With all my love,<br>Your Hubby ❤️
+        </p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = Math.random() > 0.5 ? '❤️' : '💖'; // Red or Pink heart
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-20px';
+            heart.style.fontSize = (Math.random() * 18 + 10) + 'px'; // Varied sizes
+            heart.style.opacity = Math.random() * 0.7 + 0.3; // Varied transparency
+            heart.style.transition = transform ${Math.random() * 4 + 3}s linear, top ${Math.random() * 4 + 3}s linear; // Slower, varied speed
+            heart.style.animation = sway ${Math.random() * 2 + 1}s ease-in-out infinite alternate; // Gentle sway
+
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.style.transform = translateY(110vh) rotate(${Math.random() * 360}deg);
+                heart.style.top = '110vh';
+            }, 50);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000); // Remove after longer time
+
+            // Add sway animation keyframes dynamically
+            if (!document.getElementById('sway-animation')) {
+                const styleSheet = document.createElement("style");
+                styleSheet.type = "text/css";
+                styleSheet.id = "sway-animation";
+                styleSheet.innerText = `
+                    @keyframes sway {
+                        0% { transform: translateX(0px) rotate(0deg); }
+                        50% { transform: translateX(${Math.random() * 30 - 15}px) rotate(${Math.random() * 10 - 5}deg); }
+                        100% { transform: translateX(0px) rotate(0deg); }
+                    }
+                `;
+                document.head.appendChild(styleSheet);
+            }
+        }
+        setInterval(createHeart, 250); // More frequent hearts
+    </script>
+</body>
+</html>
